@@ -20,7 +20,7 @@ AI Chat with PDF is a powerful application that allows you to have natural conve
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/aichatpdf.git
+   git clone https://github.com/djili/aichatpdf.git
    cd aichatpdf
    ```
 
