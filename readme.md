@@ -1,20 +1,21 @@
 # AI Chat with PDF
 
-AI Chat with PDF is a powerful application that allows you to have natural conversations with your PDF documents. Using state-of-the-art language models and embeddings, the application can understand and answer questions about the content of your PDF files.
+AI Chat with PDF is a powerful application that allows you to have natural conversations with your PDF documents. Using state-of-the-art language models and HuggingFace embeddings, the application can understand and answer questions about the content of your PDF files in a conversational manner.
 
 ## Features
 
-- 📄 Upload and process PDF documents
-- 💬 Chat with your documents using natural language
-- 🔍 Retrieve relevant information from large documents
-- 🧠 Built with LangChain and OpenAI's powerful language models
-- 🚀 Streamlit-based web interface
+- 📄 Upload and process multiple PDF documents simultaneously
+- 💬 Interactive chat interface with conversation history
+- 🔍 Semantic search using HuggingFace embeddings
+- 🧠 Powered by LangChain and HuggingFace models
+- 🚀 Modern Streamlit-based web interface
+- 🌍 Multilingual support (French/English)
 
 ## Prerequisites
 
 - Python 3.8 or higher
 - [Poetry](https://python-poetry.org/) (recommended) or pip
-- OpenAI API key
+- HuggingFace API key (optional, for some models)
 
 ## Installation
 
@@ -36,9 +37,13 @@ AI Chat with PDF is a powerful application that allows you to have natural conve
 
 3. Set up environment variables:
    - Copy `.env.example` to `.env`
-   - Add your OpenAI API key to the `.env` file
+   - Configure your preferred models and API keys:
    ```bash
-   OPENAI_API_KEY=your_api_key_here
+   # For OpenAI models (optional)
+   OPENAI_API_KEY=your_openai_key
+   
+   # For HuggingFace models (recommended)
+   HUGGINGFACEHUB_API_TOKEN=your_hf_token
    ```
 
 ## Usage
@@ -62,19 +67,22 @@ AI Chat with PDF is a powerful application that allows you to have natural conve
 ## How It Works
 
 1. The application processes your PDF document and extracts the text content
-2. The text is split into manageable chunks
-3. These chunks are converted into vector embeddings using HuggingFace embeddings
-4. When you ask a question, the system finds the most relevant text chunks
-5. The relevant context is sent to the language model to generate an answer
+2. The text is split into manageable chunks using recursive text splitting
+3. These chunks are converted into vector embeddings using HuggingFace's instructor-xl model
+4. When you ask a question, the system performs a semantic search to find the most relevant text chunks
+5. The conversation history and relevant context are used to generate a coherent response
+6. The chat interface maintains conversation history for context-aware responses
 
 ## Technologies Used
 
 - [Streamlit](https://streamlit.io/) - Web application framework
 - [LangChain](https://python.langchain.com/) - Framework for developing applications with LLMs
-- [OpenAI](https://openai.com/) - Language models for generating responses
-- [HuggingFace](https://huggingface.co/) - Embeddings for document retrieval
+- [LangChain](https://python.langchain.com/) - Framework for LLM applications
+- [HuggingFace](https://huggingface.co/) - For embeddings and language models
 - [FAISS](https://github.com/facebookresearch/faiss) - Efficient similarity search
-- [PyPDF2](https://pypi.org/project/PyPDF2/) - PDF processing
+- [PyPDF2](https://pypi.org/project/PyPDF2/) - PDF text extraction
+- [Streamlit](https://streamlit.io/) - Web application framework
+- [Sentence Transformers](https://www.sbert.net/) - For generating embeddings
 
 ## Contributing
 
